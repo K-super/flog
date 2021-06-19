@@ -22,7 +22,7 @@
 						<span>验证码</span>
 					</label>
 					<div class="btn">
-						<button>提交</button>
+						<button>登录</button>
 						<button @click="cancel()">取消</button>
 					</div>
 					
@@ -96,6 +96,7 @@
 		margin: 10px;
 		border-radius: 10px;
 		border-color:#EAFFEA;
+		padding-left: 10px;
 	}
 	
 	div{

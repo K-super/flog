@@ -2,11 +2,13 @@
 	<div class="header">
 
 		<!-- <div class="line"></div> -->
+		<!-- 导航栏点击事件 -->
+		<!-- @select="handleSelect" -->
 		<el-menu
 		  :default-active="activeIndex2"
 		  class="el-menu-demo addMenuStyle"
 		  mode="horizontal"
-		  @select="handleSelect"
+		  
 		  background-color="#88ada6"
 		  text-color="#fff"
 		  active-text-color="#ffd04b">
@@ -26,15 +28,19 @@
 		  </el-submenu>
 		  <el-menu-item index="3" >消息中心</el-menu-item>
 			<el-input placeholder="请输入内容" class="addInput"></el-input>
-			<el-menu-item index="4" @click = "signIn">登录</el-menu-item>
-			<el-menu-item index="5" @click ="regsiter">注册</el-menu-item>
+			<el-menu-item index="4" @click = "clickSignIn">登录</el-menu-item>
+			<el-menu-item index="5" @click ="register">注册</el-menu-item>
 		</el-menu>
-
+		<!-- 登录注册组件调用 -->
+		<signInCpt/>
+		<registerCpt/>
 	</div>
 	
 </template>
 
 <script>
+	const signInCpt = () => import('./signIn')
+	const registerCpt = () => import('./register')
 	export default {
 		name:"flogHead",
 		data() {
@@ -43,16 +49,21 @@
 				activeIndex2: '1'
 			};
 		},
+		components:{
+			signInCpt,
+			registerCpt
+		},
 		methods: {
-			handleSelect(key, keyPath) {
-				console.log(key, keyPath);
-			},
-			signIn(){
+			
+			// handleSelect(key, keyPath) {
+			// 	console.log(key, keyPath);
+			// },
+			clickSignIn(){
 				signIn.style.display = "block";
 				bg.className = "bg";
 			},
-			regsiter(){
-				regsiter.style.display = "block";
+			register(){
+				register.style.display = "block";
 				regBg.className = "bg";
 			}
 			

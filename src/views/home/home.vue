@@ -1,8 +1,7 @@
 <template>
 	<div class="home">
 		<flogHead/>
-		<signIn/>
-		<regsiter/>
+
 		<div class="backTop" @click="backTop()" v-model="up" v-show="up == 1">
 			<i class="iconfont icon-4fanhuidingbubai"></i>
 		</div>
@@ -48,9 +47,6 @@
 	const tabs = () => import('../../components/tabs')
 	const lifeExperience = () => import("./components/lifeExperience")
 	const technologyShare = () => import("./components/technologyShare")
-	const signIn = () => import('../../components/signIn')
-	const regsiter = () => import('../../components/regsiter')
-	
 	export default {
 		name:"home",
 		data (){
@@ -65,10 +61,8 @@
 			flogFoot,
 			tabs,
 			technologyShare,
-			lifeExperience,
-			signIn,
-			regsiter
-			
+			lifeExperience
+
 		},
 		mounted () {
 		    window.addEventListener('scroll', this.scrollToTop)
