@@ -79,8 +79,11 @@
 
 .addSubmenu {
 	// margin-left: 300px;
+	
 }
 .addMenuStyle{
+	padding: 0 !important;
+	min-width: 1190px;
 	padding: 0 10%;
 	display: flex;
 	justify-content: space-between;

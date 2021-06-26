@@ -20,7 +20,7 @@
 
 <style lang="less">
 .flogFoot{
-	
+	min-width: 1190px;
 	height: 100px;
 	width: 100%;
 	background-color: #88ada6;
