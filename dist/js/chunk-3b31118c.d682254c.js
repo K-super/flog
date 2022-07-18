@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-3b31118c"],{"0de8":function(n,t,e){"use strict";e("286d")},"286d":function(n,t,e){},4121:function(n,t,e){"use strict";e.r(t);var o=function(){var n=this,t=n.$createElement,e=n._self._c||t;return e("div",{staticClass:"flogFoot"},[n._v(" Copyright 2010-2019 WenMang sir ")])},c=[],s={name:"foot",data:function(){return{}},methods:{}},u=s,i=(e("0de8"),e("2877")),a=Object(i["a"])(u,o,c,!1,null,null,null);t["default"]=a.exports}}]);
-//# sourceMappingURL=chunk-3b31118c.d682254c.js.map
