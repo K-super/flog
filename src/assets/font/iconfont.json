@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "18686612",
+      "name": "勾选",
+      "font_class": "gouxuan",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "18368038",
+      "name": "叉",
+      "font_class": "cha",
+      "unicode": "e686",
+      "unicode_decimal": 59014
+    },
+    {
       "icon_id": "134659",
       "name": "所在地",
       "font_class": "suozaidi",

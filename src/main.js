@@ -3,11 +3,18 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import ElementUI from 'element-ui'
+import axios from "axios";
+import config from "./config"
+import "./assets/css/common.css"
+
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/font/iconfont.css'
 //记得下载css-loader编译css文件
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+axios.defaults.baseURL = config.target;
+Vue.prototype.$http = axios;
+
 Vue.use(ElementUI);
 // 导航守卫
 router.beforeEach((to, from, next) => {
@@ -16,7 +23,7 @@ router.beforeEach((to, from, next) => {
     document.title = to.meta.title
   }
   next()
-})
+});
 new Vue({
   router,
   store,

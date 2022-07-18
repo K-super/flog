@@ -44,9 +44,13 @@
 <script>
 	const flogHead = () => import ("../../components/flogHead")
 	const flogFoot = () => import ("../../components/flogFoot")
-	const tabs = () => import('../../components/tabs')
+	const tabs = () => import('./components/tabs')
 	const lifeExperience = () => import("./components/lifeExperience")
-	const technologyShare = () => import("./components/technologyShare")
+	
+	// 直接加载technologyShare组件，避免组建加载引起闪屏
+	import technologyShare from "./components/technologyShare"
+	import more from "./components/more"
+
 	export default {
 		name:"home",
 		data (){
@@ -61,7 +65,8 @@
 			flogFoot,
 			tabs,
 			technologyShare,
-			lifeExperience
+			lifeExperience,
+			more
 
 		},
 		mounted () {
@@ -98,6 +103,9 @@
 </script>
 
 <style lang="less" scoped>
+
+
+
 .info{
 	display: none;
 	p{
@@ -123,10 +131,9 @@
 	}
 }
 .homeContent{
-	height: 200px;
 	width: 1190px;
 	margin: 0 auto;
-	clear: all;
+	overflow: hidden;
 }
 .homeContentLeft{
 	

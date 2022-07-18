@@ -1,0 +1,20 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.red{
+  color: red;
+}
+.green{
+  color: green;
+}
+.block{
+  display: block !important;
+}
+.none{
+  display: none !important;
+}
+.inblock{
+  display: inline-block;
+}
+
