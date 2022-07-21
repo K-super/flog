@@ -53,6 +53,9 @@
 		<!-- 登录注册组件调用 -->
 		<signInCpt ref="signC" @resdata="showReqData"/>
 		<registerCpt ref="regC"/>
+		<!-- <audio controls>
+			<source src="../assets/music/张卓含威 - 阴天.mp3" type="audio/mpeg">
+		</audio> -->
 	</div>
 	
 </template>
@@ -101,6 +104,19 @@
 </script>
 
 <style lang="less">
+@keyframes leftMove {
+	from {
+		transform: translate(100%);
+	}
+	to {
+		transform: translate(0);
+	}
+}
+
+.header{
+	animation: leftMove 2s;
+}
+
 .li-hover{
 	border-bottom: 2px solid #ffd04b;
 }

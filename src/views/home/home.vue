@@ -1,42 +1,44 @@
 <template>
 	<div class="home">
 		<flogHead/>
-
-		<div class="backTop" @click="backTop()" v-model="up" v-show="up == 1">
-			<i class="iconfont icon-4fanhuidingbubai"></i>
-		</div>
-		<div class="homeContent">
-			<div class="homeContentLeft">
-				
-				<!-- 一个bug 刷新页面之后addTabsclick类样式恢复初始状态，想点办法做个缓存之类的 -->
-				<!-- <keep-alive include="tabs">
-					<div is = "tabs"></div>
-				</keep-alive>
-				
-				<router-view/> -->
-				
-				<tabs @tabsName = "tabsEmit" />
-				<div :is="changeTabsSign" ></div>
+		<div class="homeCont">
+			<div class="backTop" @click="backTop()" v-model="up" v-show="up == 1">
+				<i class="iconfont icon-4fanhuidingbubai"></i>
 			</div>
-			
-			<div class="homeContentRight">
-				<!-- 头像放置 -->
-				<div class="headPortrait">
-					<img src="../../assets/outher.jpg" alt="文盲先生" title="文盲先生">
+			<div class="homeContent">
+				<div class="homeContentLeft">
+				
+					<!-- 一个bug 刷新页面之后addTabsclick类样式恢复初始状态，想点办法做个缓存之类的 -->
+					<!-- <keep-alive include="tabs">
+						<div is = "tabs"></div>
+					</keep-alive>
+					
+					<router-view/> -->
+					
+					<tabs @tabsName = "tabsEmit" />
+					<div :is="changeTabsSign" ></div>
 				</div>
-				<div class="outherInformation">
-					<p>文盲先生</p>
-					<span>一个Web前端工程师</span>
-					<a href="javascript:;" @click="clickOutherInfo">了解我?</a>
-					<!-- 暂时先写死，后面连数据库 -->
-					<div class="info">
-						<p><i class="iconfont icon-nianling"></i>年&emsp;龄：21</p>
-						<p><i class="iconfont icon-suozaidi"></i>所在地：四川成都</p>
-						<p><i class="iconfont icon-youxiang"></i>邮&emsp;箱：k_super@163.com</p>
+			
+				<div class="homeContentRight">
+					<!-- 头像放置 -->
+					<div class="headPortrait">
+						<img src="../../assets/outher.jpg" alt="文盲先生" title="文盲先生">
+					</div>
+					<div class="outherInformation">
+						<p>文盲先生</p>
+						<span>一个Web前端工程师</span>
+						<a href="javascript:;" @click="clickOutherInfo">了解我?</a>
+						<!-- 暂时先写死，后面连数据库 -->
+						<div class="info">
+							<p><i class="iconfont icon-nianling"></i>年&emsp;龄：21</p>
+							<p><i class="iconfont icon-suozaidi"></i>所在地：四川成都</p>
+							<p><i class="iconfont icon-youxiang"></i>邮&emsp;箱：k_super@163.com</p>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		
 		<flogFoot/>
 	</div>
 </template>
@@ -103,8 +105,14 @@
 </script>
 
 <style lang="less" scoped>
-
-
+@keyframes rightTopMove {
+	from{
+		transform: translateY(-100%);
+	}
+	to{
+		transform: translateY(0);
+	}
+}
 
 .info{
 	display: none;
@@ -118,6 +126,10 @@
 }
 .home{
 	position: relative;
+	animation: rightTopMove 2s;
+}
+.homeCont{
+	min-height: 700px;
 }
 // 返回顶部按钮
 .backTop{

@@ -19,7 +19,17 @@
 </script>
 
 <style lang="less">
+@keyframes rightMove {
+	from{
+		transform: translate(-100%);
+	}
+	to{
+		transform: translate(0);
+	}
+}
+
 .flogFoot{
+	animation: rightMove 2s;
 	min-width: 1190px;
 	height: 100px;
 	width: 100%;
