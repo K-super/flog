@@ -23,7 +23,8 @@
 		},
 		components:{
 			
-		}
+		},
+		
 	}
 </script>
 

@@ -17,4 +17,21 @@
 .inblock{
   display: inline-block;
 }
+.flexCenter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex{
+  display: flex;
+}
+.justifyBetween{
+  justify-content: space-between;
+}
+.justifyAround{
+  justify-content: space-around;
+}
+.alignCenter{
+  align-items: center;
+}
 

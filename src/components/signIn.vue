@@ -14,7 +14,7 @@
               type="text"
               placeholder="数字字母下划线组成"
               id="userName"
-              v-model="username"
+              v-model.trim="username"
             />
             <span></span> </label
           ><br />
@@ -25,7 +25,7 @@
               type="password"
               placeholder="请输入密码"
               id="userPwd"
-              v-model="userpwd"
+              v-model.trim="userpwd"
             />
             <span></span> </label
           ><br />
@@ -34,7 +34,7 @@
             <input
               type="text"
               id="userVerificationCode"
-              v-model="userVerificationCode"
+              v-model.trim="userVerificationCode"
             />
             <div id="captcha" @click="clickCaptcha" v-html="captchaData"></div>
           </label>
@@ -60,6 +60,20 @@ export default {
       userVerificationCode: "",
       captchaData: "获取验证码",
     };
+  },
+  created(){
+    let that = this;
+    // 会出现请求失败的情况
+    this.$http
+      .get(`/session_search`)
+      .then(function (res) {
+        that.$emit('resdata',res.data.data)
+        that.$parent.hideBtn();
+        console.log(res.data);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
   },
   methods: {
     // 用户名格式检测正则
@@ -88,26 +102,27 @@ export default {
       bg.className = "";
     },
     // 防抖
-    postSignIn: debounce(function () {
+    postSignIn: debounce(async function () {
       let that = this;
       let signInfo = {
         username: this.username,
         userpwd: this.userpwd,
-        userVerificationCode: this.userVerificationCode,
+        userVerificationCode: this.userVerificationCode
       };
-      this.$http
+      await this.$http
         .post(`/signin`, signInfo)
         .then(function (res) {
           that.$emit('resdata',res.data)
           that.$parent.hideBtn();
+          console.log(res.data);
         })
         .catch(function (err) {
           console.log(err);
         });
     }, 1000),
     // 节流
-    clickCaptcha: thorttle(function () {
-      this.$http.get(`/captcha`).then((res) => {
+    clickCaptcha: thorttle(async function () {
+      await this.$http.get(`/captcha`).then((res) => {
         this.captchaData = res.data.data;
       });
     }, 1000),

@@ -13,6 +13,7 @@ import './assets/font/iconfont.css'
 
 Vue.config.productionTip = false;
 axios.defaults.baseURL = config.target;
+axios.defaults.withCredentials = true;
 Vue.prototype.$http = axios;
 
 Vue.use(ElementUI);

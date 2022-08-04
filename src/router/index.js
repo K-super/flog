@@ -5,6 +5,7 @@ import home from '../views/home/home.vue'
 Vue.use(VueRouter)
 
 const detailsShare  = () => import('../views/detailsShare/detailsShare')
+const mPhone = () => import('../views/mPhone/mPhone')
 
 let meta = {
 			title:"文盲先生",
@@ -36,6 +37,12 @@ const routes = [
 		name:'detailsShare',
 		path:'/detailsShare',
 		component:detailsShare,
+		meta
+	},
+	{
+		name:'mPhone',
+		path:'/mPhone',
+		component:mPhone,
 		meta
 	}
 ]

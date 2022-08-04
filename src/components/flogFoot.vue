@@ -1,5 +1,5 @@
 <template>
-	<div class="flogFoot">
+	<div class="flogFoot flexCenter">
 		Copyright 2010-2019 WenMang sir
 	</div>
 </template>
@@ -21,22 +21,18 @@
 <style lang="less">
 @keyframes rightMove {
 	from{
-		transform: translate(-100%);
+		transform: translateX(-100%);
 	}
 	to{
-		transform: translate(0);
+		transform: translateX(0);
 	}
 }
 
 .flogFoot{
 	animation: rightMove 2s;
-	min-width: 1190px;
 	height: 100px;
 	width: 100%;
 	background-color: #88ada6;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	font-size: 20px;
 	color: white;
 }

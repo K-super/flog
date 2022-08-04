@@ -2,6 +2,7 @@
   "name": "flog",
   "auther": "super",
   "e-mail":"k_super@163.com",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
