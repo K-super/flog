@@ -37,7 +37,9 @@
               v-model.trim="userVerificationCode"
             />
             <div id="captcha" @click="clickCaptcha" v-html="captchaData"></div>
+            
           </label>
+          <p style="text-align: center;" id="res_p"></p>
           <div class="btn">
             <button @click="postSignIn">登录</button>
             <button @click="cancel" >取消</button>
@@ -67,13 +69,13 @@ export default {
     this.$http
       .get(`/session_search`)
       .then(function (res) {
-        that.$emit('resdata',res.data.data)
-        that.$parent.hideBtn();
-        console.log(res.data);
+        if(res.data.code) {
+          that.$parent.hideBtn()
+          that.$emit('resdata',res.data)
+        }else {
+            res_p.innerHTML = res.data.msg;
+          };
       })
-      .catch(function (err) {
-        console.log(err);
-      });
   },
   methods: {
     // 用户名格式检测正则
@@ -109,11 +111,16 @@ export default {
         userpwd: this.userpwd,
         userVerificationCode: this.userVerificationCode
       };
-      await this.$http
+      this.$http
         .post(`/signin`, signInfo)
         .then(function (res) {
-          that.$emit('resdata',res.data)
-          that.$parent.hideBtn();
+          if(res.data.code) {
+            that.$parent.hideBtn()
+            that.$emit('resdata',res.data)
+          }else {
+            res_p.innerHTML = res.data.msg;
+          };
+          
           console.log(res.data);
         })
         .catch(function (err) {
@@ -122,7 +129,7 @@ export default {
     }, 1000),
     // 节流
     clickCaptcha: thorttle(async function () {
-      await this.$http.get(`/captcha`).then((res) => {
+      this.$http.get(`/captcha`).then((res) => {
         this.captchaData = res.data.data;
       });
     }, 1000),

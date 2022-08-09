@@ -52,6 +52,7 @@
               v-html="reg_captchaData"
             ></div>
           </label>
+          <p style="text-align: center;" id="post_val_return"></p>
           <div class="btn">
             <button @click="regPost">注册</button>
             <button @click="cancel()">取消</button>
@@ -124,7 +125,12 @@ export default {
       this.$http
         .post(`/register`, regInfo)
         .then(function (res) {
-          // console.log(res.data);
+          if(res.data.code) {
+            that.$parent.hideBtn()
+          }else {
+            post_val_return.innerHTML = res.data.msg;
+          };
+          console.log(res.data);
         })
         .catch(function (err) {
           console.log(err);
